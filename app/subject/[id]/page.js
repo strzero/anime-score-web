@@ -1,6 +1,5 @@
 import { CheckBox, PlatformIDBox } from './tools-csr';
 import { InfoBox, ScoreCard } from './tools';
-import ErrorPage from './error-page';
 
 export const metadata = {
 };
@@ -17,7 +16,11 @@ export default async function Page({ params }) {
 
   if (Math.floor((data.status + data.bangumi_data.status + id_data.status + score_data.status) / 100
 ) !== 8) {
-    return ErrorPage;
+    return (
+      <div className="flex flex-col items-center justify-center h-screen space-y-4">
+        <p className="text-gray-500">数据加载错误，请重试或报告管理员</p>
+      </div>
+    );
   }
   
   metadata.title = bangumi_data.name_cn || bangumi_data.name;
