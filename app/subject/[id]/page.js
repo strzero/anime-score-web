@@ -8,6 +8,7 @@ export default async function Page({ params }) {
   const { id } = params;
   const res = await fetch(`http://localhost:8000/query/${id}`, {
     next: { revalidate: 1 },
+    // TODO: DEBUG 缓存时间修改
   });
   const data = await res.json();
   const bangumi_data = data.bangumi_data.data;
