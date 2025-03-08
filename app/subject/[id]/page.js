@@ -1,5 +1,6 @@
 import { CheckBox, PlatformIDBox } from './tools-csr';
 import { InfoBox, ScoreCard } from './tools';
+import Footer from "@/components/Footer";
 
 export const metadata = {
 };
@@ -7,7 +8,7 @@ export const metadata = {
 export default async function Page({ params }) {
   const { id } = params;
   const res = await fetch(`http://localhost:8000/query/${id}`, {
-    next: { revalidate: 1 },
+    next: { revalidate: 60 },
     // TODO: DEBUG 缓存时间修改
   });
   const data = await res.json();
@@ -105,6 +106,7 @@ export default async function Page({ params }) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
