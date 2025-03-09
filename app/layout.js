@@ -12,8 +12,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// export const metadata = {
-// };
+export let metadata = {
+  title: '全球动画评分'
+};
 
 export default function RootLayout({ children }) {
   return (

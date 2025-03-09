@@ -31,7 +31,7 @@ const Header = () => {
       </div>
 
       {/* 右边更新时间 */}
-      <div className="text-sm">
+      <div className="text-sm hidden sm:block">
         上一次刷新数据 2025年3月6日
       </div>
     </header>

@@ -1,14 +1,22 @@
 'use client'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Link from 'next/link';
 
 export function PlatformIDBox({ platform, name, bangumi_id, local_id, useradd }) {
   const [showDialog, setShowDialog] = useState(false);
   const [newId, setNewId] = useState(local_id || '');
 
+  const link = {
+    'MyAnimeList': 'https://myanimelist.net/anime/' + local_id,
+    'Anilist': 'https://anilist.co/anime/' + local_id,
+    'Filmarks': 'https://filmarks.com/animes/' + local_id,
+    'Anikore': 'https://www.anikore.jp/anime/' + local_id,
+  }
+
   const handleSubmit = async () => {
-    const url = `http://localhost:5100/update/2?bangumi_id=${bangumi_id}&${platform.toLowerCase()}_id=${newId}`;
-    await axios.post(url);
+    const url = `http://localhost:5100/update/${bangumi_id}?${platform.toLowerCase()}_id=${newId}`;
+    await axios.post(url, { method: 'POST' });
     setShowDialog(false);
   };
 
@@ -19,7 +27,12 @@ export function PlatformIDBox({ platform, name, bangumi_id, local_id, useradd })
           <h4 className="text-sm font-medium text-gray-700">
             {platform}{useradd == 1 && <span className="ml-2">（用户添加）</span>}
           </h4>
-          <div className="text-xs text-gray-500 mt-1">ID: {local_id || '未关联'}</div>
+          <div className="text-xs text-gray-500 mt-1">
+            ID: {local_id || '未关联'}
+            <Link href={link[platform]} className="text-blue-500 hover:underline ml-2">
+              原页面
+            </Link>
+          </div>
           <div className="text-xs text-gray-500 mt-1">平台名称: {name || '未关联'}</div>
         </div>
         <button 

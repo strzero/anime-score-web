@@ -11,7 +11,7 @@ const Footer = () => {
         {/* 图片部分 */}
         <div className="mt-4">
           <Image 
-            src="/by-nc.png" 
+            src="/image/by-nc.png" 
             alt="Creative Commons License" 
             className="mx-auto" 
             width={100} 
