@@ -61,7 +61,7 @@ export default async function now() {
                 rows={ave_data}
                 title={
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <span>平均值</span>
+                        <span>平均评分</span>
                         <Tooltip title="将全部平台分数取平均值 排除评分总数小于200的条目">
                             <InfoOutlinedIcon style={{ fontSize: 18, marginLeft: 8, cursor: 'pointer' }} />
                         </Tooltip>

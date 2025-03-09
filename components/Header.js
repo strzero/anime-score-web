@@ -11,8 +11,12 @@ const Header = () => {
         首页
       </Link>
 
-      <Link href="/rank/now" className="hover:text-yellow-400">
-        新番评分
+      <Link href="/rank/now/ave" className="hover:text-yellow-400">
+        新番平均评分
+      </Link>
+
+      <Link href="/rank/now/wam" className="hover:text-yellow-400">
+        新番加权评分
       </Link>
 
       <Link href="/rank/custom" className="hover:text-yellow-400">
