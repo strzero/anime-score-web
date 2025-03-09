@@ -7,7 +7,7 @@ export function PlatformIDBox({ platform, name, bangumi_id, local_id, useradd })
   const [newId, setNewId] = useState(local_id || '');
 
   const handleSubmit = async () => {
-    const url = `http://localhost:8000/update/2?bangumi_id=${bangumi_id}&${platform.toLowerCase()}_id=${newId}`;
+    const url = `http://localhost:5100/update/2?bangumi_id=${bangumi_id}&${platform.toLowerCase()}_id=${newId}`;
     await axios.post(url);
     setShowDialog(false);
   };
@@ -64,8 +64,8 @@ export function CheckBox({ id }) {
   const handleConfirm = async (isConfirmed) => {
     if (disabled) return;
     const url = isConfirmed 
-      ? `http://localhost:8000/confirm/${id}` 
-      : `http://localhost:8000/revoke_confirm/${id}`;
+      ? `http://localhost:5100/confirm/${id}` 
+      : `http://localhost:5100/revoke_confirm/${id}`;
     await axios.post(url);
     localStorage.setItem(`confirm-${id}`, isConfirmed ? 'confirmed' : 'revoked');
     setDisabled(true);

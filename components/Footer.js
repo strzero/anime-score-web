@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const Footer = () => {
     return (
       <footer className="py-4 text-center">
@@ -8,7 +10,13 @@ const Footer = () => {
   
         {/* 图片部分 */}
         <div className="mt-4">
-          <img src="/by-nc.png" alt="Creative Commons License" className="mx-auto w-[100px]" />
+          <Image 
+            src="/by-nc.png" 
+            alt="Creative Commons License" 
+            className="mx-auto" 
+            width={100} 
+            height={100} 
+          />
         </div>
       </footer>
     );

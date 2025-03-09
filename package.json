@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev -p 5101",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 5101",
     "lint": "next lint"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "@fontsource/roboto": "^5.2.5",
     "@mui/icons-material": "^6.4.7",
     "@mui/material": "^6.4.7",
+    "axios": "^1.8.2",
     "fuse.js": "^7.1.0",
     "next": "15.2.1",
     "react": "^19.0.0",

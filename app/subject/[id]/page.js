@@ -7,11 +7,20 @@ export const metadata = {
 
 export default async function Page({ params }) {
   const { id } = params;
-  const res = await fetch(`http://localhost:8000/query/${id}`, {
-    next: { revalidate: 60 },
-    // TODO: DEBUG 缓存时间修改
-  });
+  try {
+    const res = await fetch(`http://localhost:5100/query/${id}`, {
+      next: { revalidate: 60 },
+      // TODO: DEBUG 缓存时间修改
+    });
+  } catch (error) {
+    return (
+      <div className="flex flex-col items-center justify-center h-[calc(100vh-72px)] space-y-4">
+        <p className="text-gray-500">无法连接到数据服务</p>
+      </div>
+    );
+  }
   const data = await res.json();
+  
   const bangumi_data = data.bangumi_data.data;
   const id_data = data.id_data;
   const score_data = data.score_data;
@@ -19,7 +28,7 @@ export default async function Page({ params }) {
   if (Math.floor((data.status + data.bangumi_data.status + id_data.status + score_data.status) / 100
 ) !== 8) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen space-y-4">
+      <div className="flex flex-col items-center justify-center h-[calc(100vh-72px)] space-y-4">
         <p className="text-gray-500">数据加载错误，请重试或报告管理员</p>
       </div>
     );
