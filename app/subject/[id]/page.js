@@ -11,8 +11,7 @@ export default async function Page({ params }) {
   let res;
   try {
     res = await fetch(`http://localhost:5100/query/${id}`, {
-      next: { revalidate: 60 },
-      // TODO: DEBUG 缓存时间修改
+      next: { revalidate: 60 }
     });
   } catch (error) {
     return <ErrorPage errorMessage="无法连接到数据服务" />;

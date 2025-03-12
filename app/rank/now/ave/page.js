@@ -2,10 +2,18 @@ import ScoreTable from "@/components/ScoreTable";
 import { Tooltip } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import ErrorPage from "@/components/ErrorPage";
 
 export default async function now() {
-    const res = await fetch("http://localhost:5100/now");
-    const data = await res.json();
+    let res, data;
+    try {
+        res = await fetch("http://localhost:5100/now", {
+            next: { revalidate: 60 }
+          });
+        data = await res.json();
+    } catch (error) {
+        return <ErrorPage errorMessage="无法连接到数据服务" />;
+    }
 
     const ave_data = [];
 
