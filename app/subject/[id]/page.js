@@ -14,6 +14,8 @@ export default async function Page({ params }) {
       next: { revalidate: 60 }
     });
   } catch (error) {
+    console.error(process.env.AS_API_URL+`/query/${id}`)
+    console.error(error);
     return <ErrorPage errorMessage="无法连接到数据服务" />;
   }
 
