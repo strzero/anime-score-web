@@ -10,7 +10,7 @@ export default async function Page({ params }) {
   const { id } = await params;
   let res;
   try {
-    res = await fetch(`http://localhost:5100/query/${id}`, {
+    res = await fetch(process.env.AS_API_URL+`/query/${id}`, {
       next: { revalidate: 60 }
     });
   } catch (error) {

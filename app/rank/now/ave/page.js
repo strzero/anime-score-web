@@ -7,7 +7,7 @@ import ErrorPage from "@/components/ErrorPage";
 export default async function now() {
     let res, data;
     try {
-        res = await fetch("http://localhost:5100/now", {
+        res = await fetch(process.env.AS_API_URL+"/now", {
             next: { revalidate: 60 }
           });
         data = await res.json();
