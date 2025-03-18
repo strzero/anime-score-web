@@ -3,7 +3,7 @@
 ## Docker
 
 ```python
-docker run -d --name anime-score-web -p 5101:5101 --add-host host.docker.internal:host-gateway -e AS_API_URL=http://host.docker.internal:5100 stellatezero/anime-score-web
+docker run -d --name anime-score-web -p 5101:5101 --add-host host.docker.internal:host-gateway -e AS_API_URL=host.docker.internal:5100 stellatezero/anime-score-web
 ```
 
  AS_API_URL指定anime-score-api的端口地址
