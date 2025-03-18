@@ -172,7 +172,7 @@ export default function ScoreTable({rows, title}) {
       [...rows]
         .sort(getComparator(order, orderBy))
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
-    [order, orderBy, page, rowsPerPage],
+    [rows, order, orderBy, page, rowsPerPage]  // 添加 rows
   );
 
   return (
