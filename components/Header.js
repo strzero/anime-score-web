@@ -26,8 +26,8 @@ const Header = async () => {
           新番评分
         </Link>
 
-        <Link href="/rank/custom" className="hover:text-yellow-400">
-          历史评分
+        <Link href="/rank/now/dev" className="hover:text-yellow-400">
+          正误检查
         </Link>
       </div>
 
