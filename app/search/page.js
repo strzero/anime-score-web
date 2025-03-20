@@ -17,7 +17,8 @@ const SearchPage = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${process.env.AS_API_URL}/search?query=${query}`);
+        console.log(process.env.AS_API_URL+`/search?query=${query}`);
+        const response = await fetch(process.env.AS_API_URL+`/search?query=${query}`);
         const data = await response.json();
         setResults(data);
       } catch (error) {
