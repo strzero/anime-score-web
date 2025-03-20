@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Container, Typography, Grid, Paper, CircularProgress, Box } from '@mui/material';
 import Link from 'next/link';  // 修正 Link 导入
@@ -17,7 +17,7 @@ const SearchPage = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(process.env.AS_API_URL+`/search?query=${query}`);
+        const response = await fetch(`${process.env.AS_API_URL}/search?query=${query}`);
         const data = await response.json();
         setResults(data);
       } catch (error) {
@@ -73,4 +73,13 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+// 在页面组件外部添加 Suspense 边界
+const SuspendedSearchPage = () => {
+  return (
+    <Suspense fallback={<CircularProgress />}>
+      <SearchPage />
+    </Suspense>
+  );
+};
+
+export default SuspendedSearchPage;
