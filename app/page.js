@@ -29,7 +29,8 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-72px)] bg-gray-100 bg-[url('/image/background/image3.png')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center">
+    // <div className="min-h-[calc(100vh-72px)] bg-gray-100 bg-[url('/image/background/image3.png')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center">
+    <div className="min-h-[calc(100vh-72px)] bg-gray-100 flex flex-col justify-center items-center">
       {/* pt-18 用于为顶部 72px 顶栏添加相应的填充 */}
       <h1 className="text-4xl font-bold mb-8">全球动画评分</h1>
       <div className="w-full max-w-md px-4">
