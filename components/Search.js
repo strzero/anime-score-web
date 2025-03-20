@@ -32,7 +32,7 @@ const Search = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:5100/search?query=${debouncedQuery}`);
+        const response = await fetch(process.env.AS_API_URL+`:5100/search?query=${debouncedQuery}`);
         const data = await response.json();
         setResults(data.slice(0, 6)); // 只显示前6条
       } catch (error) {
