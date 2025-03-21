@@ -6,7 +6,7 @@ import Search from './Search'; // Import Search component
 const Header = async () => {
   let res, time;
   try {
-    res = await fetch(process.env.AS_API_URL + "/db_time", {
+    res = await fetch(process.env.NEXT_PUBLIC_AS_API_URL + "/db_time", {
       next: { revalidate: 12 * 60 * 60 },
     });
     time = await res.text();
